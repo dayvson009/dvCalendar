@@ -1,5 +1,5 @@
 const dvCalendarDate = att => {
-// try{
+try{
   const config = {
     dv : (typeof att == 'object') ? att.calendarId : att
     ,minYear : att.minYear || 2000
@@ -190,7 +190,7 @@ const dvCalendarDate = att => {
   }
 
   
-// }catch{
-//   console.log('Insira um id na tag que contem a class="dv-calendario", e chame na funcao dvCalendarDate(id)')
-// }
+}catch{
+  console.log('Insira um id na tag que contem a class="dv-calendario", e chame na funcao dvCalendarDate(id)')
+}
 }
