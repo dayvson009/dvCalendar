@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>dv Calendar</title>
+  <style type="text/css">
+    .dv-calendario input {
+      font-size: 12px;
+      margin-top: 10px;
+      padding: 10px 15px;
+      border: black solid 1px;
+      border-radius: 3px;
+    }
+
+    .currentDay{
+      color: red;
+    }
+
+    .dv-calendario{
+      display: inline-block;
+    }
+
+    .dv-calendario .dv-group-calendar{
+      display: none;
+    }
+
+    .dv-calendario.active .dv-group-calendar{
+      display: block;
+    }
+  </style>
+
+  <script type="text/javascript" src="src/dvCalendar.js"></script>
+</head>
+<body>
+  <h2>Calendário Simples</h2>
+  <div class="dv-calendario" id="calendar1">
+    <form>
+      <select name="month" class="dv-month"></select>
+      <select name="year" class="dv-year"></select>
+    </form>
+    <div>
+      <button class="dv-previous">Previous</button>
+      <button class="dv-next">Next</button>
+    </div>
+    <table class="dv-calendar">
+      <thead>
+        <tr>
+          <th>Dom</th>
+          <th>Seg</th>
+          <th>Ter</th>
+          <th>Qua</th>
+          <th>Qui</th>
+          <th>Sex</th>
+          <th>Sáb</th>
+        </tr>
+      </thead>
+      <tbody class="dv-calendar-body"></tbody>
+    </table>
+
+    <label for="date">Data Inicial</label>
+    <input type="text" class="dv-fieldDate" maxlength="10" placeholder="dd/mm/yyyy">
+    <span class="dv-iconCalendar">📅</span>
+  </div>
+  <hr>
+  <h2>Calendário Oculto</h2>
+  <div class="dv-calendario" id="calendar2">
+    <label for="date">Data Inicial</label>
+    <input type="text" class="dv-fieldDate" maxlength="10" placeholder="dd/mm/yyyy">
+    <span class="dv-iconCalendar">📅</span>
+
+    <div class="dv-group-calendar">
+      <form>
+        <select name="month" class="dv-month"></select>
+        <select name="year" class="dv-year"></select>
+      </form>
+      <div>
+        <button class="dv-previous">Previous</button>
+        <button class="dv-next">Next</button>
+      </div>
+      <table class="dv-calendar">
+        <thead>
+          <tr>
+            <th>Dom</th>
+            <th>Seg</th>
+            <th>Ter</th>
+            <th>Qua</th>
+            <th>Qui</th>
+            <th>Sex</th>
+            <th>Sáb</th>
+          </tr>
+        </thead>
+        <tbody class="dv-calendar-body"></tbody>
+      </table>
+    </div>
+  </div>
+  <hr>
+  <h2>Calendário Data e Mês Curto</h2>
+    <div class="dv-calendario" id="calendar3">
+      <form>
+        <select name="month" class="dv-month"></select>
+        <select name="year" class="dv-year"></select>
+      </form>
+      <div>
+        <button class="dv-previous">Previous</button>
+        <button class="dv-next">Next</button>
+      </div>
+      <table class="dv-calendar">
+        <thead>
+          <tr>
+            <th>Dom</th>
+            <th>Seg</th>
+            <th>Ter</th>
+            <th>Qua</th>
+            <th>Qui</th>
+            <th>Sex</th>
+            <th>Sáb</th>
+          </tr>
+        </thead>
+        <tbody class="dv-calendar-body"></tbody>
+      </table>
+
+      <label for="date">Data Inicial</label>
+      <input type="text" class="dv-fieldDate" maxlength="10" placeholder="dd/mm/yyyy">
+      <span class="dv-iconCalendar">📅</span>
+    </div>
+    <hr>
+    <h2>Calendário Sem a Função Prox Anterior</h2>
+    <div class="dv-calendario" id="calendar4">
+      <form>
+        <select name="month" class="dv-month"></select>
+        <select name="year" class="dv-year"></select>
+      </form>
+      <div>
+        <button class="dv-previous">Previous</button>
+        <button class="dv-next">Next</button>
+      </div>
+      <table class="dv-calendar">
+        <thead>
+          <tr>
+            <th>Dom</th>
+            <th>Seg</th>
+            <th>Ter</th>
+            <th>Qua</th>
+            <th>Qui</th>
+            <th>Sex</th>
+            <th>Sáb</th>
+          </tr>
+        </thead>
+        <tbody class="dv-calendar-body"></tbody>
+      </table>
+
+      <label for="date">Data Inicial</label>
+      <input type="text" class="dv-fieldDate" maxlength="10" placeholder="dd/mm/yyyy">
+      <span class="dv-iconCalendar">📅</span>
+    </div>
+
+  <script type="text/javascript">
+    dvCalendarDate('calendar1')
+    dvCalendarDate('calendar2')
+    dvCalendarDate({
+      calendarId : 'calendar3' // Id do Grupo de Elemento dv-calendar
+      ,minYear : 1993 // Ano inicial
+      ,maxYear : 3 // Ano atual + 5
+      ,typeMonth : 'short' // Typo de Meses a mostrar, full ou short
+    })
+    dvCalendarDate({
+      calendarId : 'calendar4' // Id do Grupo de Elemento dv-calendar
+      ,minYear : 2009 // Ano inicial
+      ,maxYear : 5 // Ano atual + 5
+      ,nav: false // abilitar/desabilita o next | prev
+    })
+    dvCalendarDate('calendar2')
+  </script>
+</body>
+</html>
