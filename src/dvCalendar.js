@@ -1,5 +1,5 @@
 const dvCalendarDate = att => {
-try{
+// try{
   const config = {
     dv : (typeof att == 'object') ? att.calendarId : att
     ,minYear : att.minYear || 2000
@@ -38,7 +38,7 @@ try{
   })()
 
   buttonCalendar.addEventListener('click', () => {
-    dvCalendar.classList.toggle('active')
+    dvCalendar.classList.add('active')
     if(inputDate.value.length == 10){
       newCurrentDate(inputDate.value)
     }
@@ -48,8 +48,9 @@ try{
   showCalendar(currentMonth, currentYear);
 
   const newCurrentDate = (newDate = '') => {
+    console.log(newDate)
     let [d,m,y] = newDate.split('/')
-    today = new Date(`${m}-${d}-${y}`)
+    today = new Date(`${m}/${d}/${y}`)
     currentMonth = today.getMonth()
     currentYear = today.getFullYear()
   }
@@ -73,6 +74,7 @@ try{
   }
 
   function showCalendar(month, year) {
+    console.log(month, year)
 
       let firstDay = (new Date(year, month)).getDay();
 
@@ -120,9 +122,10 @@ try{
   }
 
   const dateInInput = (d,m,y) => {
-    const selectedDate = new Date(`${m+1}-${d}-${y}`)
+    const selectedDate = new Date(`${m+1}/${d}/${y}`)
     inputDate.value = selectedDate.toLocaleDateString()
     newCurrentDate(selectedDate.toLocaleDateString())
+    console.log(selectedDate.toLocaleDateString())
     showCalendar(currentMonth, currentYear)
   }
 
@@ -135,6 +138,7 @@ try{
   //---------
 
   const maskDateInput = (e) => {
+    dvCalendar.classList.remove('active')
     // if not a number
     if (e.keyCode < 47 || e.keyCode > 57) {
       // do nothing
@@ -186,7 +190,7 @@ try{
   }
 
   
-}catch{
-  console.log('Insira um id na tag que contem a class="dv-calendario", e chame na funcao dvCalendarDate(id)')
-}
+// }catch{
+//   console.log('Insira um id na tag que contem a class="dv-calendario", e chame na funcao dvCalendarDate(id)')
+// }
 }
