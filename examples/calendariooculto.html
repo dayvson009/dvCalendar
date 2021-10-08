@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>dv Calendar</title>
+  <style type="text/css">
+    .dv-calendario input {
+      font-size: 12px;
+      margin-top: 10px;
+      padding: 10px 15px;
+      border: black solid 1px;
+      border-radius: 3px;
+    }
+
+    .currentDay{
+      color: red;
+    }
+
+    .dv-calendario{
+      display: inline-block;
+    }
+
+    .dv-calendario .dv-group-calendar{
+      display: none;
+    }
+
+    .dv-calendario.active .dv-group-calendar{
+      display: block;
+    }
+  </style>
+
+  <script type="text/javascript" src="../src/dvCalendar.js"></script>
+</head>
+<body>
+  <div class="dv-calendario" id="calendario">
+    <label for="date">Data Inicial</label>
+    <input type="text" class="dv-fieldDate" maxlength="10" placeholder="dd/mm/yyyy">
+    <span class="dv-iconCalendar">📅</span>
+
+    <div class="dv-group-calendar">
+      <form>
+        <select name="month" class="dv-month"></select>
+        <select name="year" class="dv-year"></select>
+      </form>
+      <div>
+        <button class="dv-previous">Previous</button>
+        <button class="dv-next">Next</button>
+      </div>
+      <table class="dv-calendar">
+        <thead>
+          <tr>
+            <th>Dom</th>
+            <th>Seg</th>
+            <th>Ter</th>
+            <th>Qua</th>
+            <th>Qui</th>
+            <th>Sex</th>
+            <th>Sáb</th>
+          </tr>
+        </thead>
+        <tbody class="dv-calendar-body"></tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+    dvCalendarDate('calendario')
+  </script>
+</body>
+</html>

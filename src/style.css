@@ -1,0 +1,11 @@
+.dv-calendario input {
+  font-size: 12px;
+  margin-top: 10px;
+  padding: 10px 15px;
+  border: black solid 1px;
+  border-radius: 3px;
+}
+
+.currentDay{
+  color: red;
+}
