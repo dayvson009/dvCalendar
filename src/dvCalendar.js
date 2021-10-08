@@ -174,7 +174,13 @@ try{
     }
   }
 
-  inputDate.addEventListener('focus', ()=>{inputDate.parentNode.classList.add('active')})
+  const calendarActive = () => {
+    calendarios = document.querySelectorAll('.dv-calendario.active')
+    calendarios.forEach(item => item.classList.remove('active'))
+    inputDate.parentNode.classList.add('active')
+  }
+
+  inputDate.addEventListener('focus', calendarActive)
   dvCalendar.addEventListener('click', (event)=>{event.stopPropagation()})
   document.addEventListener('click', ()=>{dvCalendar.classList.remove('active')})
 

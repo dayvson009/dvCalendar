@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>dv Calendar</title>
+  <style type="text/css">
+    .dv-calendario input {
+      font-size: 12px;
+      margin-top: 10px;
+      padding: 10px 15px;
+      border: black solid 1px;
+      border-radius: 3px;
+    }
+
+    .dv-iconCalendar{
+      position: relative;
+      left: -30px;
+    }
+
+    .dv-calendario{
+      display: inline-block;
+      position: relative;
+    }
+
+    .dv-calendario .dv-group-calendar{
+      display: none;
+      position: absolute;
+      top: 100%;
+      background-color: #fff;
+      padding: 10px;
+      right: 0;
+      border-radius: 7px;
+      box-shadow: 0 1px 10px -3px #888;
+      border: 1px solid #3d92ff;
+      text-align: center;
+    }
+
+    .dv-calendario.active .dv-group-calendar{
+      display: block;
+    }
+
+    .dv-previous{
+      border: none;
+      font-size: 1.2em;
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      font-weight: bold;
+      color: #ff6440;
+      background-color: #fff;
+      border-radius: 20px;
+      padding: 0px 11px 4px 12px;
+      cursor: pointer;
+    }
+
+    .dv-next{
+      border: none;
+      font-size: 1.2em;
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      font-weight: bold;
+      color: #ff6440;
+      background-color: #fff;
+      border-radius: 20px;
+      padding: 0px 11px 4px 12px;
+      cursor: pointer;
+    }
+
+    .dv-next:hover, .dv-previous:hover{
+      background-color: #eee;
+    }
+
+    .currentDay {
+      color: #fff!important;
+      background-color: #ff6440!important;
+      padding: 3px 0;
+    }
+
+    .dv-month{
+      border: none;
+      background-color: #fff;
+      margin: 0 10px 10px 0;
+      display: inline-block;
+      color: #0843b9;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .dv-year{
+      border: none;
+      background-color: #fff;
+      margin: 0 0 10px 10px;
+      display: inline-block;
+      color: #0843b9;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .dv-calendar th {
+      font-size: .8em;
+      margin: 5px;
+      padding: 3px;
+      color: #555;
+    }
+
+    .dv-calendar th:first-child {
+      color: #ff6440;
+    }
+
+    .dv-calendar td {
+      cursor: pointer;
+      padding: 3px 0;
+      border-radius: 20px;
+      transition: .2s;
+    }
+
+    .dv-calendar td:hover {
+      background-color: #ededed;
+      color: #000;
+    }
+  </style>
+
+  <script type="text/javascript" src="../src/dvCalendar.js"></script>
+</head>
+<body>
+  <div class="dv-calendario" id="calendario">
+    <label for="date">Data Inicial</label>
+    <input type="text" class="dv-fieldDate" maxlength="10" placeholder="dd/mm/yyyy">
+    <span class="dv-iconCalendar">📅</span>
+
+    <div class="dv-group-calendar">
+      <form>
+        <select name="month" class="dv-month"></select>
+        <select name="year" class="dv-year"></select>
+      </form>
+      <div>
+        <button class="dv-previous">&#8249;</button>
+        <button class="dv-next">&#8250;</button>
+      </div>
+      <table class="dv-calendar">
+        <thead>
+          <tr>
+            <th>Dom</th>
+            <th>Seg</th>
+            <th>Ter</th>
+            <th>Qua</th>
+            <th>Qui</th>
+            <th>Sex</th>
+            <th>Sáb</th>
+          </tr>
+        </thead>
+        <tbody class="dv-calendar-body"></tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+    dvCalendarDate('calendario')
+  </script>
+</body>
+</html>
