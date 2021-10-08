@@ -15,6 +15,8 @@ O plugin foi desenvolvido para simplificar a forma de escolher uma data com cale
 
 O uso do plugin é muito simples só precisamos criar a estrutura html, e na div que contém `class="dv-calendario"` insira um id a ser chamado ex: `calendario`
 
+**Veja ele funcionando** -> [exemplos](https://dayvson009.github.io/dvCalendar/)
+
 ```html
 <div class="dv-calendario" id="calendario">
   <form>
